@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <title>Projeto ZG</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+      integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css"
+      integrity="sha512-NXUhxhkDgZYOMjaIgd89zF2w51Mub53Ru3zCNp5LTlEzMbNNAjTjDbpURYGS5Mop2cU4b7re1nOIucsVlrx9fA=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+
+    <header class="main-header">
+      <div class="ui container">
+        <h1>To-Do List Felipe</h1>
+      </div>
+    </header>
+
+    <br>
+    <br>
+
+    <div class="ui container">
+      <!--info task add -->
+      <form id="tasks" class="ui left icon input fluid">
+        <input
+          id="task-titulo"
+          class="large"
+          type="text"
+          placeholder="Escreva o titulo da sua tarefa aqui tarefa aqui..."
+        />
+      </form>
+      <br>
+      <form id="tasks" class="ui left icon input fluid">
+        <input
+          id="tasks-descricao"
+          class="large"
+          type="text"
+          placeholder="Escreva o descrição da sua tarefa aqui tarefa aqui..."
+        />
+      </form>
+      <br>
+      
+      Selecione o prqazo de conclusão: <br>
+      <input type="date" id="prazo">
+
+      <br>
+      <h5>Selecione o nível de prioridade</h5>
+      <form>
+        <select id="prioridade">
+          <option value="opt1">1</option>
+          <option value="opt2">2</option>
+          <option value="opt3">3</option>
+          <option value="opt3">4</option>
+          <option value="opt3">5</option>
+        </select>
+
+      </form>
+      <!-- final task -->
+
+    
+      <br>
+      <br>
+
+
+      <div id="buttons" class="ui stackable grid equal width" >
+        <button
+          id="clear-all-tasks"
+          class="ui button column"
+        >
+          Excluir todas as Task
+        </button>
+        <button
+        id="add-tasks"
+        class="ui button column"
+        >
+        Adicionar Task
+        </button>
+        
+        <button
+          disabled
+          class="ui button column"
+        >
+        Excluir todas as Task concluídas
+        </button>
+      </div>
+      <!-- End Buttons -->
+
+      <!-- Tasks List -->
+      <ul id="tasks-list" class="ui segments"></ul>
+      <!-- End Tasks List -->
+
+      <!-- Edit Modal -->
+      <div id="edit-modal" class="ui tiny modal">
+        <div class="header">Atualizar Taks</div>
+        <div class="content">
+          <div class="ui fluid input">
+            <input id="task-id" type="hidden" />
+            <input id="task-text" type="text" />
+          </div>
+        </div>
+        <div class="actions">
+          <div class="ui cancel button">Cancelar</div>
+          <div id="update-button" class="ui positive right labeled icon button">
+            Atualizar
+            <i class="checkmark icon"></i>
+          </div>
+        </div>
+      </div>
+      <!-- End Edit Modal -->
+
+      <!-- Delete Modal -->
+      <div id="remove-modal" class="ui tiny modal">
+        <div class="header">Deletar sua Task</div>
+        <div class="content">
+          <div class="ui fluid input">
+            <input id="task-id" type="hidden" />
+            <p>Tem certeza que deseja deletar sua task ?</p>
+          </div>
+        </div>
+        <div class="actions">
+          <div class="ui cancel red button">Não</div>
+          <div id="remove-button" class="ui positive right labeled icon button">
+            Sim
+            <i class="checkmark icon"></i>
+          </div>
+        </div>
+      </div>
+      <!-- End Delete Modal -->
+
+      <!-- Clear All Tasks Modal -->
+      <div id="clear-all-tasks-modal" class="ui tiny modal">
+        <div class="header">Apagar todas as Task</div>
+        <div class="content">
+          <div class="ui fluid input">
+            <input id="task-id" type="hidden" />
+            <p>Tem certeza que deseja deletar todas as suas task ?</p>
+          </div>
+        </div>
+        <div class="actions">
+          <div class="ui cancel red button">Não</div>
+          <div
+            id="remove-button"
+            onclick="clearAllTasks()"
+            class="ui positive right labeled icon button"
+          >
+            Sim
+            <i class="checkmark icon"></i>
+          </div>
+        </div>
+      </div>
+      <!-- End Clear All Tasks Modal -->
+
+      <!-- Clear Completed Tasks Modal -->
+      <div id="clear-completed-tasks-modal" class="ui tiny modal">
+        <div class="header">Limpar task concluidas</div>
+        <div class="content">
+          <div class="ui fluid input">
+            <input id="task-id" type="hidden" />
+            <p>Tem cecrteza que deseja limpar todas as tasks concluídas?</p>
+          </div>
+        </div>
+        <div class="actions">
+          <div class="ui cancel red button">Não</div>
+          <div
+            id="remove-button"
+            class="ui positive right labeled icon button"
+          >
+            Sim
+            <i class="checkmark icon"></i>
+          </div>
+        </div>
+      </div>
+      <!-- End Clear Completed Tasks Modal -->
+    </div>
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>
