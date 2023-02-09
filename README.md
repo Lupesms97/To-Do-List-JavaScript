@@ -1,5 +1,5 @@
 # To-Do-List-JavaScript
-##PROJETO ZG ACELERA
+## PROJETO ZG ACELERA
 Projeto com o uso de HTML, CSS e Javscript que visa implementar a lógica 
 de lista de afazeres.
 
