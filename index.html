@@ -38,7 +38,7 @@
 
     <div class="ui container">
       <!--info task add -->
-      <form class="ui left icon input fluid">
+      <form id = "formTaskTitulo" class="ui left icon input fluid">
         <input
           id="task-titulo"
           class="large"
@@ -47,14 +47,14 @@
         />
       </form>
       <br>
-      <form class="ui left icon input fluid">
+      <form id ="formTaskDescricao" class="ui left icon input fluid">
         <input
           id="task-descricao"
           class="large"
           type="text"
           placeholder="Escreva o descrição da sua tarefa aqui tarefa aqui..."
         />
-      </form>
+      </form id = "formPrazo">
       <br>
       
       Selecione o prqazo de conclusão: <br>
@@ -62,7 +62,7 @@
 
       <br>
       <h5>Selecione o nível de prioridade</h5>
-      <form>
+      <form id ="formPrioridade">
         <select id="prioridade">
           <option value="opt1">1</option>
           <option value="opt2">2</option>
@@ -166,6 +166,15 @@
         </div>
       </div>
       <!-- End Clear All Tasks Modal -->
+      <div id="spinner-loader" class="spinner-loader" style="display: none">
+        <div class="showbox">
+            <div class="loader">
+                <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                </svg>
+            </div>
+        </div>
+      </div>
 
       <!-- Clear Completed Tasks Modal -->
       <div id="clear-completed-tasks-modal" class="ui tiny modal">
