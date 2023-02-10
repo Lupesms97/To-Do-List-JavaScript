@@ -81,7 +81,9 @@ document.getElementById("add-tasks").onclick = function(){
     // }, 2000);
 
 
-
+    for(var ctd = 0; ctd < lista.length; ctd++ ){
+        console.log(lista[ctd]);
+    }
 
 
 
