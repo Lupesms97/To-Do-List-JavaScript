@@ -6,12 +6,10 @@
 
 // const clearAllTasksBtn = document.getElementById("clear-all-tasks");
 const clearAllTasksBtn = document.getElementsByTagName("button")[0];
-
+var lista_tasks = [];
 
 
 var banco_de_dados = (function() {
-
-    var lista_tasks = [];
     
     return {
         buscar_tasks :  function() {
@@ -66,6 +64,9 @@ var banco_de_dados = (function() {
 // }
 function DisplayTasks() {
 
+    let tasks = banco_de_dados.buscar_tasks();
+
+
     if (tasks.length === 0) {
         document.getElementById("tasks-list").innerHTML = "Não há tarefas adicionadas.";
         return;
@@ -74,7 +75,6 @@ function DisplayTasks() {
     let tasksList = document.getElementById("tasks-list");
     tasksList.innerHTML = "";
       
-    let tasks = banco_de_dados.buscar_tasks();
       
     for (let i = 0; i < tasks.length; i++) {
         let task = tasks[i];
@@ -182,4 +182,5 @@ document.getElementById("add-tasks").onclick = function(){
     
  
 };
+
 DisplayTasks();
