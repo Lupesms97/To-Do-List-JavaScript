@@ -83,12 +83,14 @@
         <button
           id="clear-all-tasks"
           class="ui button column"
+          onclick="showClearAllTasksModal()"
         >
           Excluir todas as Task
         </button>
         <button
         id="add-tasks"
         class="ui button column"
+        onclick="showClearCompletedTasksModal()"
         >
         Adicionar Task
         </button>
@@ -170,7 +172,7 @@
         <div class="showbox">
             <div class="loader">
                 <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                <circle class="path" cx="100" cy="100" r="40" fill="none" stroke-width="2" stroke-miterlimit="10"/>
                 </svg>
             </div>
         </div>
@@ -189,6 +191,7 @@
           <div class="ui cancel red button">Não</div>
           <div
             id="remove-button"
+            onclick="clearAllTasks()"
             class="ui positive right labeled icon button"
           >
             Sim
