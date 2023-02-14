@@ -66,6 +66,7 @@ function DisplayTasks() {
     
 
     for (let i = 0; i < tasks.length; i++) {
+        var taskIndex = tasks[i].id;
         let tr = tbody.insertRow();
 
         let td_id = tr.insertCell();
@@ -189,21 +190,36 @@ document.getElementById("add-tasks").onclick = function () {
 };
 function prepararEditar(dados){
 
-     document.getElementById("task-titulo").value =  task_Titulo ;
+    // document.getElementById("task-titulo").value =  task_Titulo ;
 
-    // descrição
-    document.getElementById("task-descricao").value = task_descricao;
+    
+    // document.getElementById("task-descricao").value = task_descricao;
 
-    // data
+    
 
-    //  diferencaEmDias() = task_data;
+    // diferencaEmDias() = task_data;
 
-    // prioridade
-    // document.getElementById("prioridade") = campo_select ;
-    // campo_select.options.selectedIndex = indice_selecionado;
-    // campo_select.options[indice_selecionado].innerHTML = valor_selecionado;
-    campo_select = document.getElementById("prioridade");
-    campo_select.value = valor_selecionado;
+
+    // campo_select = document.getElementById("prioridade");
+    // campo_select.value = valor_selecionado;
+
+    // document.getElementById("clear-all-tasks").innerHTML = "Cancelar";
+    // document.getElementById("add-tasks").innerHTML = "Salvar";
+
+    var task_Titulo = document.getElementById("task-titulo").value;
+    var task_descricao = document.getElementById("task-descricao").value;
+    var task_data = diferencaEmDias();
+    var campo_select = document.getElementById("prioridade");
+    var valor_selecionado = campo_select.options[campo_select.selectedIndex].innerHTML;
+
+    // Definir o objeto task com os novos valores
+    task = {
+        "id": dados.id,
+        "titulo": task_Titulo,
+        "descricao": task_descricao,
+        "data": task_data,
+        "prioridade": valor_selecionado
+    };
 
     document.getElementById("clear-all-tasks").innerHTML = "Cancelar";
     document.getElementById("add-tasks").innerHTML = "Salvar";
@@ -213,10 +229,45 @@ function prepararEditar(dados){
 
 
 
-function editarTask(){
-    
+function editarTask(index, task){
+    lista_tasks[index] = task;
 
+    // Atualizar a lista de tarefas no armazenamento local
+    localStorage.setItem("lista-tasks", JSON.stringify(lista_tasks));
+
+    // Limpar os campos do formulário de edição
+    limpar_campos();
+
+    // Atualizar a tabela de tarefas
+    DisplayTasks();
+
+    // Alterar o texto dos botões
+    document.getElementById("clear-all-tasks").innerHTML = "CAncelar Tarefas";
+    document.getElementById("add-tasks").innerHTML = "Salvar Tarefa";
+
+    document.getElementById("add-tasks").onclick = function () {
+        // ...
+    
+        try {
+            if (validarCampos) {
+                if (taskIndex !== -1) {
+                    // Se o índice da tarefa é válido, atualizar a tarefa
+                    editarTask(taskIndex, task);
+                } else {
+                    // Se o índice da tarefa é inválido, adicionar uma nova tarefa
+                    banco_de_dados.enviar_task(task);
+                }
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    
+        
+    
+    }
 }
+
+
 
 function excluirTask(id){
 
@@ -247,5 +298,4 @@ function excluirTask(id){
 
 DisplayTasks();
 
-console.log(lista_tasks)
-console.log(task.data);
+
