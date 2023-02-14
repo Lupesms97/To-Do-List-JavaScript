@@ -84,137 +84,37 @@
           id="clear-all-tasks"
           class="ui button column"
           onclick="showClearAllTasksModal()"
-        >
-          Excluir todas as Task
-        </button>
+        >Excluir todas as Task</button>
         <button
         id="add-tasks"
         class="ui button column"
         onclick="showClearCompletedTasksModal()"
-        >
-        Adicionar Task
-        </button>
-        
-        <button
-          disabled
-          class="ui button column"
-        >
-        Excluir todas as Task concluídas
-        </button>
+        >Adicionar Task</button>
+      
       </div>
-      <!-- End Buttons -->
-
-      <!-- Tasks List -->
+ 
       <ul id="tasks-list" class="ui segments"></ul>
-      <!-- End Tasks List -->
-
-      <!-- Edit Modal -->
-      <div id="edit-modal" class="ui tiny modal">
-        <div class="header">Atualizar Taks</div>
-        <div class="content">
-          <div class="ui fluid input">
-            <input id="task-id" type="hidden" />
-            <input id="task-text" type="text" />
-          </div>
-        </div>
-        <div class="actions">
-          <div class="ui cancel button">Cancelar</div>
-          <div id="update-button" class="ui positive right labeled icon button">
-            Atualizar
-            <i class="checkmark icon"></i>
-          </div>
-        </div>
-      </div>
-      <!-- End Edit Modal -->
-
-      <!-- Delete Modal -->
-      <div id="remove-modal" class="ui tiny modal">
-        <div class="header">Deletar sua Task</div>
-        <div class="content">
-          <div class="ui fluid input">
-            <input id="task-id" type="hidden" />
-            <p>Tem certeza que deseja deletar sua task ?</p>
-          </div>
-        </div>
-        <div class="actions">
-          <div class="ui cancel red button">Não</div>
-          <div id="remove-button" class="ui positive right labeled icon button">
-            Sim
-            <i class="checkmark icon"></i>
-          </div>
-        </div>
-      </div>
-      <!-- End Delete Modal -->
-
-      <!-- Clear All Tasks Modal -->
-      <div id="clear-all-tasks-modal" class="ui tiny modal">
-        <div class="header">Apagar todas as Task</div>
-        <div class="content">
-          <div class="ui fluid input">
-            <input id="task-id" type="hidden" />
-            <p>Tem certeza que deseja deletar todas as suas task ?</p>
-          </div>
-        </div>
-        <div class="actions">
-          <div class="ui cancel red button">Não</div>
-          <div
-            id="remove-button"
-            onclick="clearAllTasks()"
-            class="ui positive right labeled icon button"
-          >
-            Sim
-            <i class="checkmark icon"></i>
-          </div>
-        </div>
-      </div>
       <!-- End Clear All Tasks Modal -->
-      <div id="spinner-loader" class="spinner-loader" style="display: none">
-        <div class="showbox">
-            <div class="loader">
-                <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="100" cy="100" r="40" fill="none" stroke-width="2" stroke-miterlimit="10"/>
-                </svg>
-            </div>
-        </div>
-      </div>
 
       <!-- Clear Completed Tasks Modal -->
-      <div id="clear-completed-tasks-modal" class="ui tiny modal">
-        <div class="header">Limpar task concluidas</div>
-        <div class="content">
-          <div class="ui fluid input">
-            <input id="task-id" type="hidden" />
-            <p>Tem cecrteza que deseja limpar todas as tasks concluídas?</p>
-          </div>
-        </div>
-        <div class="actions">
-          <div class="ui cancel red button">Não</div>
-          <div
-            id="remove-button"
-            onclick="clearAllTasks()"
-            class="ui positive right labeled icon button"
-          >
-            Sim
-            <i class="checkmark icon"></i>
-          </div>
-        </div>
+      
+      <div class="content">
+        <table border="l">
+          <thead>
+            <th class="center">ID</th>
+            <th>Titulo</th>
+            <th>Descrição</th>
+            <th>Prazo</th>
+            <th>Prioridade</th>
+            <th class="center">Ações</th>
+          </thead>
+          <tbody id="tbody">
+            
+          </tbody>
+        </table>
       </div>
 
-      <!-- cards e barras -->
-      <!-- <div class="bar" id="bar1">Nome 1</div>
-      <div class="cards" id="cards1">
-        <div class="card">Card 1</div>
-        <div class="card">Card 2</div>
-        <div class="card">Card 3</div>
-      </div>
-
-      <div class="bar" id="bar2">Nome 2</div>
-      <div class="cards" id="cards2">
-        <div class="card">Card 1</div>
-        <div class="card">Card 2</div>
-        <div class="card">Card 3</div>
-      </div> -->
-      <!-- End Clear Completed Tasks Modal -->
+      
     </div>
     <script type="text/javascript" src="js/main.js"></script>
   </body>
