@@ -55,7 +55,7 @@ function diferencaEmDias() {
 
     var dias = Math.floor(diferenca / 1000 / 60 / 60 / 24);
   
-    // Retorna a diferença em dias
+   
     return dias;
   }
 
@@ -72,16 +72,14 @@ function DisplayTasks() {
         let td_id = tr.insertCell();
         let td_titulo = tr.insertCell();
         let td_descricao = tr.insertCell();
-        let td_data = tr.insertCell();
+        let td_prazo = tr.insertCell();
         let td_prioridade = tr.insertCell();
         let td_acoes = tr.insertCell();
 
         td_id.innerText = tasks[i].id;
         td_titulo.innerText = tasks[i].titulo;
         td_descricao.innerText = tasks[i].descricao;
-        // td_prazo.innerText = tasks[i].prazo
-        lettd_data = document.createElement("td");
-        td_data.innerHTML = lista_tasks[i].prazo;
+        td_prazo.innerText = tasks[i].prazo
         td_prioridade.innerText = tasks[i].prioridade;
 
         td_id.classList.add('center');
@@ -89,7 +87,7 @@ function DisplayTasks() {
         tr.appendChild(td_id);
         tr.appendChild(td_titulo);
         tr.appendChild(td_descricao);
-        tr.appendChild(td_data);
+        tr.appendChild(td_prazo);
         tr.appendChild(td_prioridade);
         tr.appendChild(td_acoes);
     
@@ -229,7 +227,7 @@ function prepararEditar(dados){
 
 
 
-function editarTask(index, task){
+function editarTask(index, task56){
     lista_tasks[index] = task;
 
     // Atualizar a lista de tarefas no armazenamento local
